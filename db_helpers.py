@@ -3,13 +3,17 @@ import const_helper
 
 def manager_connection_to_db (db_quary):
     def connect():
-        client = MongoClient(const_helper.MONGO_URI)  
-        db = client['admin']   
-        
-        not_been_answered_clients = db_quary(db)
+        try:
+            client = MongoClient(const_helper.MONGO_URI)  
+            db = client['admin']   
+            
+            not_been_answered_clients = db_quary(db)
 
-        client.close()
-        return not_been_answered_clients
+            client.close()
+            return not_been_answered_clients
+        
+        except:
+            print('Ошибка при запросе к базе')
     return connect
 
 @manager_connection_to_db
