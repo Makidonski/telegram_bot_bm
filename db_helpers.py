@@ -43,3 +43,11 @@ def get_clients(db):
         
 
     return data_for_message
+
+@manager_connection_to_db
+def answer_client(db, client_contact):
+    # запросс в базу для изменения поля isAnswer
+    # поле назодится в коллекции clients чтобы ее достать нужно написать db['clients']
+    # Найти клиента нужно по полю contact, оно для каждого клиента уникально
+    # как сделать запросс в базу данных mongoDb для изменения одного поля у конкретного документапри помощи py спроси у chatGpt или поищи в интернете
+    clients = db['clients']
