@@ -62,7 +62,7 @@ def answer_client(message):
 @bot.message_handler(func=lambda message: const_helper.COMMANDS['ANSWER'] in message.text)
 def answer(message):
     client_contact = message.text.split(': ')[1]
-    print(client_contact)
+    db_helpers.answer_client(client_contact)
     bot.send_message(
         message.chat.id,
         'Нажмите на клиента, которому вы уже ответили',
